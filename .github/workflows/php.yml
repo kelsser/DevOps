@@ -36,3 +36,9 @@ jobs:
 
     # - name: Run test suite
     #   run: composer run-script test
+
+    - name: Minify-JS Action
+      uses: JossyDevers/minify-js@v1.0.1
+      with:
+        files: |
+          **/*.js

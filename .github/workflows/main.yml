@@ -26,3 +26,4 @@ jobs:
           VALIDATE_JSON: false
           VALIDATE_JSONC: false
           VALIDATE_PHP: false
+          VALIDATE_YAML: true

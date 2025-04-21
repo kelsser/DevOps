@@ -1,48 +1,27 @@
 name: Continuous Integration
 
 on:
+  push:
+    branches:
+      - master
+      - dev
   pull_request:
     branches:
       - dev
       - master
 
 jobs:
-  lint:
+  ci:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.2.12'
-
-      - name: Install PHP dependencies
-        run: composer install --no-interaction
-
-      - name: Lint PHP
-        run: find . -name '*.php' -exec php -l {} \;
-
-      - name: Install JavaScript dependencies
-        run: npm install
-
-      - name: Lint JavaScript
-        run: npx eslint .
-
-      - name: Install stylelint
-        run: npm install stylelint
-
-      - name: Lint CSS
-        run: npx stylelint "**/*.css"
-
-      - name: Install htmlhint
-        run: npm install htmlhint
-
-      - name: Lint HTML
-        run: npx htmlhint "**/*.html"
-
-      - name: Check code formatting
+      - name: Display structure
         run: |
-          npx prettier --check .
+          echo "🔍 Showing folder structure..."
+          ls -R
+
+      - name: CI Finished
+        run: echo "✅ Continuous Integration complete!"

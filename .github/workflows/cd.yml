@@ -1,0 +1,25 @@
+name: Continuous Delivery
+
+on:
+  push:
+    branches:
+      - master
+      - dev
+  pull_request:
+    branches:
+      - master
+      - dev
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Print Deployment Message
+        run: echo "🚀 Deployment simulation successful!"
+
+      - name: Mark CD as passed
+        run: echo "✅ Continuous Delivery action completed successfully!"

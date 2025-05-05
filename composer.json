@@ -1,0 +1,9 @@
+{
+    "name": "kelsser/devops",
+    "description": "devops project for pucpr",
+    "type": "project",
+    "minimum-stability": "dev",
+    "require-dev": {
+        "phpunit/phpunit": "^12.2@dev"
+    }
+}

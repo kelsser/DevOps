@@ -25,3 +25,6 @@ jobs:
 
       - name: CI Finished
         run: echo "✅ Continuous Integration complete!"
+
+      - name: Run PHPUnit tests
+        run: .vendor/bin/phpunit

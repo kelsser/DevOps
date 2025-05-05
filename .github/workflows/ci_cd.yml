@@ -27,6 +27,9 @@ jobs:
       - name: CI Finished
         run: echo "✅ Continuous Integration complete!"
 
+      - name: Run PHPUnit tests
+        run: .vendor/bin/phpunit
+
   cd:
     name: Continuous Delivery
     runs-on: ubuntu-latest

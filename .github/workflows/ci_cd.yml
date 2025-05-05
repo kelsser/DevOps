@@ -33,6 +33,22 @@ jobs:
       - name: CI Finished
         run: echo "✅ Continuous Integration complete!"
 
+      - name: Send Discord Notification
+        if: ${{ success() }}
+        run: |
+          curl -H "Content-Type: application/json" \
+              -X POST \
+              -d '{"content": "✅ CI Passed in ${{ github.repository }} on branch ${{ github.ref_name }}!"}' \
+              ${{ secrets.DISCORD_WEBHOOK_URL }}
+
+      - name: Send Discord Notification on Failure
+        if: ${{ failure() }}
+        run: |
+          curl -H "Content-Type: application/json" \
+              -X POST \
+              -d '{"content": "❌ CI Failed in ${{ github.repository }} on branch ${{ github.ref_name }}!"}' \
+              ${{ secrets.DISCORD_WEBHOOK_URL }}
+
   cd:
     name: Continuous Delivery
     runs-on: ubuntu-latest

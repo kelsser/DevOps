@@ -1,7 +1,7 @@
 <?php
 use PHPUnit\Framework\TestCase;
 
-class UnitTests extends TestCase
+class UnitTest extends TestCase
 {
     public function testTrueIsTrue()
     {

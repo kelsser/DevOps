@@ -23,8 +23,11 @@ jobs:
           echo "🔍 Showing folder structure..."
           ls -R
 
-      - name: CI Finished
-        run: echo "✅ Continuous Integration complete!"
+      - name: Install composer dependencies
+        run: composer install --no-interaction --prefer-dist
 
       - name: Run PHPUnit tests
         run: .vendor/bin/phpunit
+
+      - name: CI Finished
+        run: echo "✅ Continuous Integration complete!"

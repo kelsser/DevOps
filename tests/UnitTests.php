@@ -28,4 +28,3 @@ class UnitTests extends TestCase
         $this->assertContains(3, [1, 2, 3]);
     }
 }
-?>
